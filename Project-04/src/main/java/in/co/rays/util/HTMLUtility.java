@@ -91,8 +91,8 @@ public class HTMLUtility {
 	public static void testGetListByMap() {
 
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("male", "male");
-		map.put("female", "female");
+		map.put("1", "male");
+		map.put("2", "female");
 
 		String selectedValue = "";
 		String htmlSelectFromMap = HTMLUtility.getList("gender", selectedValue, map);

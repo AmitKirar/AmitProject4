@@ -209,7 +209,7 @@ public class DataUtility {
 		// Test getString
 		System.out.println("getString Test:");
 		System.out.println("Original: '  Hello World  ' -> Trimmed: '" + getString("  Hello World  ") + "'");
-		System.out.println("Null input: " + getString(null));
+		System.out.println("Null input: " + getString(""));
 
 		// Test getStringData
 		System.out.println("\ngetStringData Test:");
@@ -229,7 +229,7 @@ public class DataUtility {
 
 		// Test getDate
 		System.out.println("\ngetDate Test:");
-		String dateStr = "10/15/2024";
+		String dateStr = "15-10-2024";
 		Date date = getDate(dateStr);
 		System.out.println("String to Date: '" + dateStr + "' -> " + date);
 

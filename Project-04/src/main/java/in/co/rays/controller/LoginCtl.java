@@ -45,7 +45,9 @@ public class LoginCtl extends BaseCtl {
 	protected boolean validate(HttpServletRequest request) {
 
 		boolean pass = true;
+		
 		String op = DataUtility.getString(request.getParameter("operation"));
+		
 		if (OP_SIGN_UP.equals(op) || OP_LOG_OUT.equals(op)) {
 			return pass;
 		}
