@@ -29,7 +29,7 @@
 
 	<div align="center">
 		<h1 align="center" style="margin-bottom: -15; color: navy;">PATIENT
-			LISTiiiiiii</h1>
+			LIST</h1>
 
 		<div style="height: 15px; margin-bottom: 12px">
 			<h3>
