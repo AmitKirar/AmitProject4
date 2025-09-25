@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.RoleBean;
 import in.co.rays.bean.UserBean;
@@ -39,6 +41,8 @@ import in.co.rays.util.ServletUtility;
  */
 @WebServlet(name = "UserCtl", urlPatterns = { "/ctl/UserCtl" })
 public class UserCtl extends BaseCtl {
+	
+	Logger log = Logger.getLogger(UserCtl.class);
 
 	/**
 	 * Loads role list and sets it in request scope before rendering the page.
@@ -48,6 +52,9 @@ public class UserCtl extends BaseCtl {
 
 	@Override
 	protected void preload(HttpServletRequest request) {
+		
+		log.info("UserCtl preload Method Started");
+		
 		RoleModel model = new RoleModel();
 
 		try {
@@ -57,6 +64,8 @@ public class UserCtl extends BaseCtl {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		log.info("UserCtl preload Method Ended");
 	}
 
 	/**
@@ -68,6 +77,7 @@ public class UserCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+		log.info("UserCtl validate Method Started");
 
 		boolean pass = true;
 
@@ -147,6 +157,7 @@ public class UserCtl extends BaseCtl {
 			pass = false;
 		}
 
+		log.info("UserCtl validate Method Ended");
 		return pass;
 
 	}
@@ -160,6 +171,8 @@ public class UserCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+		log.info("UserCtl populateBean Method Started");
+
 		
 		UserBean bean = new UserBean();
 		
@@ -185,6 +198,7 @@ public class UserCtl extends BaseCtl {
 
 		populateDTO(bean, request);
 
+		log.info("UserCtl populateBean Method Ended");
 		return bean;
 	}
 
@@ -200,6 +214,8 @@ public class UserCtl extends BaseCtl {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("UserCtl doGet Method Started");
+
 
 		long id = DataUtility.getLong(request.getParameter("id"));
 
@@ -217,6 +233,7 @@ public class UserCtl extends BaseCtl {
 			}
 		}
 
+		log.info("UserCtl doGet Method Ended");
 		ServletUtility.forward(getView(), request, response);
 	}
 
@@ -232,6 +249,8 @@ public class UserCtl extends BaseCtl {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		log.info("UserCtl doPost Method Started");
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -277,6 +296,8 @@ public class UserCtl extends BaseCtl {
 			ServletUtility.redirect(ORSView.USER_CTL, request, response);
 			return;
 		}
+		
+		log.info("UserCtl doPost Method Ended");
 		ServletUtility.forward(getView(), request, response);
 	}
 

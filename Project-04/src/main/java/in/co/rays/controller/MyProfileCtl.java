@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.UserBean;
 import in.co.rays.exception.ApplicationException;
@@ -36,6 +38,8 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "MyProfileCtl", urlPatterns = { "/ctl/MyProfileCtl" })
 public class MyProfileCtl extends BaseCtl {
+	
+	Logger log = Logger.getLogger(MyProfileCtl.class);
 
 	public static final String OP_CHANGE_MY_PASSWORD = "Change Password";
 
@@ -49,6 +53,7 @@ public class MyProfileCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+		log.info("MyProfileCtl validate Method Started");
 
 		boolean pass = true;
 
@@ -95,6 +100,7 @@ public class MyProfileCtl extends BaseCtl {
 			pass = false;
 		}
 
+		log.info("MyProfileCtl validate Method Ended");
 		return pass;
 	}
 
@@ -107,6 +113,7 @@ public class MyProfileCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+		log.info("MyProfileCtl populateBean Method Started");
 
 		UserBean bean = new UserBean();
 
@@ -140,6 +147,7 @@ public class MyProfileCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("MyProfileCtl doGet Method Started");
 
 		HttpSession session = request.getSession(true);
 		UserBean user = (UserBean) session.getAttribute("user");
@@ -157,6 +165,7 @@ public class MyProfileCtl extends BaseCtl {
 				return;
 			}
 		}
+		log.info("MyProfileCtl doGet Method Ended");
 		ServletUtility.forward(getView(), request, response);
 	}
 
@@ -172,6 +181,7 @@ public class MyProfileCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("MyProfileCtl doPost Method Started");
 
 		HttpSession session = request.getSession(true);
 
@@ -207,6 +217,7 @@ public class MyProfileCtl extends BaseCtl {
 			ServletUtility.redirect(ORSView.CHANGE_PASSWORD_CTL, request, response);
 			return;
 		}
+		log.info("MyProfileCtl doPost Method Ended");
 		ServletUtility.forward(getView(), request, response);
 	}
 

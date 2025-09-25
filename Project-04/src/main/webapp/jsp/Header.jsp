@@ -67,6 +67,8 @@
 	<a href="<%=ORSView.FACULTY_LIST_CTL%>">Faculty List</a> |
 	<a href="<%=ORSView.TIMETABLE_CTL%>">Add Timetable</a> |
 	<a href="<%=ORSView.TIMETABLE_LIST_CTL%>">Timetable List</a> |
+	<a href="<%=ORSView.PATIENT_CTL%>">Add Patient</a> |
+	<a href="<%=ORSView.PATIENT_LIST_CTL%>">PatientList</a> |
 	<a href="<%=ORSView.JAVA_DOC_VIEW%>" target="_blank">Java Doc</a> |
 	<a href="<%=ORSView.LOGIN_CTL%>?operation=<%=LoginCtl.OP_LOG_OUT%>">Logout</a>
 

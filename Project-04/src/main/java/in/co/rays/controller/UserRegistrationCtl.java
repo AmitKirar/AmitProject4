@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.RoleBean;
 import in.co.rays.bean.UserBean;
@@ -20,7 +22,6 @@ import in.co.rays.util.DataValidator;
 import in.co.rays.util.PropertyReader;
 import in.co.rays.util.ServletUtility;
 
-
 /**
  * Controller to handle User Registration operations.
  * <p>
@@ -30,9 +31,9 @@ import in.co.rays.util.ServletUtility;
  *
  * Functionality includes:
  * <ul>
- *   <li>User sign-up</li>
- *   <li>Form validation</li>
- *   <li>Error and success message handling</li>
+ * <li>User sign-up</li>
+ * <li>Form validation</li>
+ * <li>Error and success message handling</li>
  * </ul>
  *
  * Mapped to `/UserRegistrationCtl`
@@ -45,19 +46,23 @@ import in.co.rays.util.ServletUtility;
 @WebServlet(name = "UserRegistrationCtl", urlPatterns = { "/UserRegistrationCtl" })
 public class UserRegistrationCtl extends BaseCtl {
 
-	
+	Logger log = Logger.getLogger(UserRegistrationCtl.class);
+
 	/** Operation constant for sign-up action. */
 	public static final String OP_SIGN_UP = "Sign Up";
-	
+
 	/**
-     * Validates user input fields during registration.
-     *
-     * @param request the HTTP request
-     * @return true if all fields are valid, false otherwise
-     */
+	 * Validates user input fields during registration.
+	 *
+	 * @param request the HTTP request
+	 * @return true if all fields are valid, false otherwise
+	 */
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+
+		log.info("UserRegistrationCtl validate Method Started");
+
 		boolean pass = true;
 
 		if (DataValidator.isNull(request.getParameter("firstName"))) {
@@ -127,19 +132,23 @@ public class UserRegistrationCtl extends BaseCtl {
 			pass = false;
 		}
 //		System.out.println("return validate1");
+
+		log.info("UserRegistrationCtl validate Method Ended");
 		return pass;
 
 	}
-	
-	 /**
-     * Populates a UserBean with request parameters.
-     *
-     * @param request the HTTP request
-     * @return populated UserBean
-     */
+
+	/**
+	 * Populates a UserBean with request parameters.
+	 *
+	 * @param request the HTTP request
+	 * @return populated UserBean
+	 */
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+		log.info("UserRegistrationCtl populateBean Method Started");
+
 //System.out.println("populate");
 		UserBean bean = new UserBean();
 
@@ -163,31 +172,39 @@ public class UserRegistrationCtl extends BaseCtl {
 
 		bean.setMobileNo(DataUtility.getString(request.getParameter("mobileNo")));
 		populateDTO(bean, request);
+
+		log.info("UserRegistrationCtl populateBean Method Ended");
 		return bean;
 	}
-	
+
 	/**
-     * Handles GET request to load the registration form.
-     *
-     * @param request  the HTTP request
-     * @param response the HTTP response
-     */
+	 * Handles GET request to load the registration form.
+	 *
+	 * @param request  the HTTP request
+	 * @param response the HTTP response
+	 */
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-//		System.out.println("This is do get method");
+
+		log.info("UserRegistrationCtl doGet Method Started");
+
 		ServletUtility.forward(getView(), request, response);
+		log.info("UserRegistrationCtl doGet Method Ended");
 	}
-	
-	 /**
-     * Handles POST request to submit registration data.
-     *
-     * @param request  the HTTP request
-     * @param response the HTTP response
-     */
+
+	/**
+	 * Handles POST request to submit registration data.
+	 *
+	 * @param request  the HTTP request
+	 * @param response the HTTP response
+	 */
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		log.info("UserRegistrationCtl doPost Method Started");
+
 		String op = DataUtility.getString(request.getParameter("operation"));
 		UserModel model = new UserModel();
 
@@ -208,24 +225,25 @@ public class UserRegistrationCtl extends BaseCtl {
 			} catch (DuplicateRecordException e) {
 				ServletUtility.setBean(bean, request);
 				ServletUtility.setErrorMessage("Login id already exist", request);
-				ServletUtility.forward(getView(), request, response);
-				
-			}
-		
 
-		}else if (OP_RESET.equalsIgnoreCase(op)) {
+			}
+
+		} else if (OP_RESET.equalsIgnoreCase(op)) {
+
 			ServletUtility.redirect(ORSView.USER_REGISTRATION_CTL, request, response);
 			return;
 		}
-		
+
+		log.info("UserRegistrationCtl doPost Method Ended");
+		ServletUtility.forward(getView(), request, response);
 
 	}
-	
+
 	/**
-     * Returns the view path for the user registration JSP.
-     *
-     * @return view path
-     */
+	 * Returns the view path for the user registration JSP.
+	 *
+	 * @return view path
+	 */
 
 	@Override
 	protected String getView() {

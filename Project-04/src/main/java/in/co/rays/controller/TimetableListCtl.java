@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.TimetableBean;
 import in.co.rays.exception.ApplicationException;
@@ -33,6 +35,8 @@ import in.co.rays.util.ServletUtility;
 @WebServlet(name = "TimetableListCtl", urlPatterns = { "/ctl/TimetableListCtl" })
 public class TimetableListCtl extends BaseCtl {
 	
+	Logger log = Logger.getLogger(TimetableListCtl.class);
+	
 	/**
      * Preloads the subject and course lists for filter dropdowns in the timetable list view.
      *
@@ -42,6 +46,7 @@ public class TimetableListCtl extends BaseCtl {
 	
 	@Override
 	protected void preload(HttpServletRequest request) {
+		log.info("TimetableListCtl preload Method Started");
 
 		SubjectModel subjectModel = new SubjectModel();
 		CourseModel courseModel = new CourseModel();
@@ -57,6 +62,7 @@ public class TimetableListCtl extends BaseCtl {
 			e.printStackTrace();
 			return;
 		}
+		log.info("TimetableListCtl preload Method Ended");
 	}
 	
 	/**
@@ -68,6 +74,7 @@ public class TimetableListCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+		log.info("TimetableListCtl populateBean Method Started");
 
 		TimetableBean bean = new TimetableBean();
 
@@ -75,7 +82,7 @@ public class TimetableListCtl extends BaseCtl {
 		bean.setSubjectId(DataUtility.getLong(request.getParameter("subjectId")));
 		bean.setExamDate(DataUtility.getDate(request.getParameter("examDate")));
 		
-
+		log.info("TimetableListCtl populateBean Method Ended");
 		return bean;
 	}
 	
@@ -90,6 +97,7 @@ public class TimetableListCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("TimetableListCtl doGet Method Started");
 
 		int pageNo = 1;
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
@@ -111,12 +119,15 @@ public class TimetableListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
-			ServletUtility.forward(getView(), request, response);
+			
 
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 		}
+		
+		log.info("TimetableListCtl doGet Method Ended");
+		ServletUtility.forward(getView(), request, response);
 	}
 	
 	/**
@@ -131,6 +142,7 @@ public class TimetableListCtl extends BaseCtl {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("TimetableListCtl doPost Method Started");
 
 		List list = null;
 		List next = null;
@@ -198,12 +210,15 @@ public class TimetableListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
-			ServletUtility.forward(getView(), request, response);
+		
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 			return;
 		}
+		
+		log.info("TimetableListCtl doPost Method Ended");
+		ServletUtility.forward(getView(), request, response);
 	}
 	
 	/**

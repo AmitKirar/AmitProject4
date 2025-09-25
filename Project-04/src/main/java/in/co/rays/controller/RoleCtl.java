@@ -7,6 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.RoleBean;
 import in.co.rays.exception.ApplicationException;
@@ -34,6 +36,8 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "RoleCtl", urlPatterns = { "/ctl/RoleCtl" })
 public class RoleCtl extends BaseCtl {
+	
+	Logger log = Logger.getLogger(RoleCtl.class);
 
 	/**
 	 * Validates input fields for role name and description.
@@ -44,6 +48,7 @@ public class RoleCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+		log.info("RoleCtl validate Method Started");
 
 		boolean pass = true;
 
@@ -59,6 +64,7 @@ public class RoleCtl extends BaseCtl {
 			request.setAttribute("description", PropertyReader.getValue("error.require", "Description"));
 			pass = false;
 		}
+		log.info("RoleCtl validate Method Ended");
 		return pass;
 	}
 
@@ -71,6 +77,7 @@ public class RoleCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+		log.info("RoleCtl populateBean Method Started");
 
 		RoleBean bean = new RoleBean();
 
@@ -80,6 +87,7 @@ public class RoleCtl extends BaseCtl {
 
 		populateDTO(bean, request);
 
+		log.info("RoleCtl populateBean Method Ended");
 		return bean;
 	}
 
@@ -94,6 +102,7 @@ public class RoleCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+		log.info("RoleCtl doGet Method Started");
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -113,6 +122,7 @@ public class RoleCtl extends BaseCtl {
 			}
 		}
 
+		log.info("RoleCtl doGet Method Ended");
 		ServletUtility.forward(getView(), request, response);
 	}
 
@@ -127,6 +137,7 @@ public class RoleCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("RoleCtl doPost Method Started");
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -176,6 +187,7 @@ public class RoleCtl extends BaseCtl {
 			ServletUtility.redirect(ORSView.ROLE_CTL, request, response);
 			return;
 		}
+		log.info("RoleCtl doPost Method Ended");
 		ServletUtility.forward(getView(), request, response);
 	}
 

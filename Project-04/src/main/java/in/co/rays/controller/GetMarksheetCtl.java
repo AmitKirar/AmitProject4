@@ -7,6 +7,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.MarksheetBean;
 import in.co.rays.exception.ApplicationException;
@@ -27,6 +29,8 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "GetMarksheetCtl", urlPatterns = { "/ctl/GetMarksheetCtl" })
 public class GetMarksheetCtl extends BaseCtl {
+	
+	Logger log = Logger.getLogger(GetMarksheetCtl.class);
 
 	/**
 	 * Validates the Roll Number input field.
@@ -37,6 +41,7 @@ public class GetMarksheetCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+		log.info("GetMarksheetCtl validate Method Started");
 
 		boolean pass = true;
 
@@ -45,6 +50,7 @@ public class GetMarksheetCtl extends BaseCtl {
 			pass = false;
 		}
 
+		log.info("GetMarksheetCtl validate Method Ended");
 		return pass;
 	}
 
@@ -57,11 +63,13 @@ public class GetMarksheetCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+		log.info("GetMarksheetCtl populateBean Method Started");
 
 		MarksheetBean bean = new MarksheetBean();
 
 		bean.setRollNo(DataUtility.getString(request.getParameter("rollNo")));
 
+		log.info("GetMarksheetCtl populateBean Method Ended");
 		return bean;
 	}
 
@@ -76,7 +84,10 @@ public class GetMarksheetCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("GetMarksheetCtl doGet Method Started");
+		
 		ServletUtility.forward(getView(), request, response);
+		log.info("GetMarksheetCtl doGet Method Ended");
 	}
 
 	/**
@@ -90,6 +101,7 @@ public class GetMarksheetCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("GetMarksheetCtl doPost Method Started");
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -112,6 +124,8 @@ public class GetMarksheetCtl extends BaseCtl {
 				return;
 			}
 		}
+		
+		log.info("GetMarksheetCtl doPost Method Ended");
 		ServletUtility.forward(getView(), request, response);
 	}
 

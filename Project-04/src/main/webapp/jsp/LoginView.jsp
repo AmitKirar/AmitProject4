@@ -29,7 +29,7 @@
 			<jsp:useBean id="bean" class="in.co.rays.bean.UserBean"
 				scope="request" />
 
-			<h1 align="centre" > <font size="10px" color="navy"> User Login</font></h1>
+			<h1 align="centre" > <font size="10px" color="navy">  Login</font></h1>
 
 
 			<h1>

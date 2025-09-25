@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.StudentBean;
 import in.co.rays.exception.ApplicationException;
@@ -27,6 +29,7 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "StudentListCtl", urlPatterns = { "/ctl/StudentListCtl" })
 public class StudentListCtl extends BaseCtl {
+	Logger log = Logger.getLogger(StudentListCtl.class);
 
 	/**
 	 * Populates the StudentBean from request parameters.
@@ -37,6 +40,8 @@ public class StudentListCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+		log.info("StudentListCtl populateBean Method Started");
+
 
 		StudentBean bean = new StudentBean();
 
@@ -44,6 +49,7 @@ public class StudentListCtl extends BaseCtl {
 		bean.setLastName(DataUtility.getString(request.getParameter("lastName")));
 		bean.setEmail(DataUtility.getString(request.getParameter("email")));
 
+		log.info("StudentListCtl populateBean Method Ended");
 		return bean;
 	}
 
@@ -56,6 +62,7 @@ public class StudentListCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("StudentListCtl doGet Method Started");
 
 		int pageNo = 1;
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
@@ -77,12 +84,14 @@ public class StudentListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
-			ServletUtility.forward(getView(), request, response);
+			
 
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 		}
+		log.info("StudentListCtl doGet Method Ended");
+		ServletUtility.forward(getView(), request, response);
 	}
 
 	/**
@@ -95,6 +104,8 @@ public class StudentListCtl extends BaseCtl {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("StudentListCtl doPost Method Started");
+
 
 		List list = null;
 		List next = null;
@@ -160,12 +171,15 @@ public class StudentListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
-			ServletUtility.forward(getView(), request, response);
+			
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 			return;
 		}
+		
+		log.info("StudentListCtl doPost Method Ended");
+		ServletUtility.forward(getView(), request, response);
 	}
 
 	/**

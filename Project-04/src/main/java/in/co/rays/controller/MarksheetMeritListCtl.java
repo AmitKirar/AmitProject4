@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import in.co.rays.bean.MarksheetBean;
 import in.co.rays.exception.ApplicationException;
 import in.co.rays.model.MarksheetModel;
@@ -32,6 +34,8 @@ import in.co.rays.util.ServletUtility;
 @WebServlet(name = "MarksheetMeritListCtl", urlPatterns = { "/ctl/MarksheetMeritListCtl" })
 public class MarksheetMeritListCtl extends BaseCtl {
 
+	Logger log = Logger.getLogger(MarksheetMeritListCtl.class);
+
 	/**
 	 * Handles the HTTP GET request. Fetches and displays the top merit list.
 	 *
@@ -43,6 +47,7 @@ public class MarksheetMeritListCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("MarksheetMeritListCtl doGet Method Started");
 
 		int pageNo = 1;
 
@@ -68,10 +73,11 @@ public class MarksheetMeritListCtl extends BaseCtl {
 
 		} catch (ApplicationException e) {
 			e.printStackTrace();
-			System.out.println("<-------------><------------->");
-			ServletUtility.handleException(e, request, response);
 			return;
 		}
+
+		log.info("MarksheetMeritListCtl doGet Method Ended");
+		ServletUtility.forward(getView(), request, response);
 	}
 
 	/**
@@ -86,6 +92,7 @@ public class MarksheetMeritListCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("MarksheetMeritListCtl doPost Method Started");
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -93,6 +100,7 @@ public class MarksheetMeritListCtl extends BaseCtl {
 			ServletUtility.redirect(ORSView.WELCOME_CTL, request, response);
 			return;
 		}
+		log.info("MarksheetMeritListCtl doPost Method Ended");
 	}
 
 	/**

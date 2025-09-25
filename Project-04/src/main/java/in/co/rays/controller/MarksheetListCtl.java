@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.MarksheetBean;
 import in.co.rays.exception.ApplicationException;
@@ -30,6 +32,8 @@ import in.co.rays.util.ServletUtility;
 @WebServlet(name = "MarksheetListCtl", urlPatterns = { "/ctl/MarksheetListCtl" })
 public class MarksheetListCtl extends BaseCtl {
 
+	Logger log = Logger.getLogger(MarksheetListCtl.class);
+
 	/**
 	 * Populates the MarksheetBean object from the request parameters.
 	 *
@@ -39,12 +43,14 @@ public class MarksheetListCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+		log.info("MarksheetListCtl populateBean Method Started");
 
 		MarksheetBean bean = new MarksheetBean();
 
 		bean.setRollNo(DataUtility.getString(request.getParameter("rollNo")));
 		bean.setName(DataUtility.getString(request.getParameter("name")));
 
+		log.info("MarksheetListCtl populateBean Method Ended");
 		return bean;
 	}
 
@@ -59,6 +65,8 @@ public class MarksheetListCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
+		log.info("MarksheetListCtl doGet Method Started");
 
 		int pageNo = 1;
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
@@ -80,12 +88,12 @@ public class MarksheetListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
-			ServletUtility.forward(getView(), request, response);
-
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 		}
+		log.info("MarksheetListCtl doGet Method Ended");
+		ServletUtility.forward(getView(), request, response);
 	}
 
 	/**
@@ -101,6 +109,7 @@ public class MarksheetListCtl extends BaseCtl {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("MarksheetListCtl doPost Method Started");
 
 		List list = null;
 		List next = null;
@@ -168,12 +177,14 @@ public class MarksheetListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
-			ServletUtility.forward(getView(), request, response);
+			
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 			return;
 		}
+		log.info("MarksheetListCtl doPost Method Ended");
+		ServletUtility.forward(getView(), request, response);
 	}
 
 	/**

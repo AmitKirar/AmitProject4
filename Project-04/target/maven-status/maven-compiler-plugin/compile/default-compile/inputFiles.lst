@@ -12,6 +12,7 @@ D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\BaseCtl.ja
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\GetMarksheetCtl.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\test\TestCourseModel.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\exception\DuplicateRecordException.java
+D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\PatientListCtl.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\bean\StudentBean.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\test\TesttimetableModel.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\UserListCtl.java
@@ -29,9 +30,12 @@ D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\ErrorCtl.j
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\test\TestFacultyModel.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\bean\RoleBean.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\bean\UserBean.java
+D:\projects\Project-04\Project-04\src\main\java\in\co\rays\model\PatientModel.java
+D:\projects\Project-04\Project-04\src\main\java\in\co\rays\test\TestPatientModel.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\StudentCtl.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\util\EmailMessage.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\exception\DatabaseException.java
+D:\projects\Project-04\Project-04\src\main\java\in\co\rays\bean\PatientBean.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\SubjectListCtl.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\test\TestCollegeModel.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\CourseCtl.java
@@ -40,6 +44,7 @@ D:\projects\Project-04\Project-04\src\main\java\in\co\rays\util\PropertyReader.j
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\WelcomeCtl.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\test\TestMarksheetModel.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\util\JDBCDataSource.java
+D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\PatientCtl.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\FacultyCtl.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\bean\CollegeBean.java
 D:\projects\Project-04\Project-04\src\main\java\in\co\rays\controller\SubjectCtl.java

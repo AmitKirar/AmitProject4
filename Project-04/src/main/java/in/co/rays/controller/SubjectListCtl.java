@@ -8,6 +8,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.SubjectBean;
 import in.co.rays.exception.ApplicationException;
@@ -29,6 +31,8 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "SubjectListCtl", urlPatterns = { "/ctl/SubjectListCtl" })
 public class SubjectListCtl extends BaseCtl {
+	
+	Logger log = Logger.getLogger(SubjectListCtl.class);
 
 	/**
 	 * Loads data required to display on the subject list page such as subject list
@@ -39,6 +43,8 @@ public class SubjectListCtl extends BaseCtl {
 
 	@Override
 	protected void preload(HttpServletRequest request) {
+		log.info("SubjectListCtl preload Method Started");
+		
 
 		SubjectModel subjectModel = new SubjectModel();
 		CourseModel courseModel = new CourseModel();
@@ -55,6 +61,7 @@ public class SubjectListCtl extends BaseCtl {
 			e.printStackTrace();
 			return;
 		}
+		log.info("SubjectListCtl preload Method Ended");
 	}
 
 	/**
@@ -66,6 +73,8 @@ public class SubjectListCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+		log.info("SubjectListCtl populateBean Method Started");
+
 
 		SubjectBean bean = new SubjectBean();
 
@@ -75,6 +84,7 @@ public class SubjectListCtl extends BaseCtl {
 		bean.setCourseId(DataUtility.getLong(request.getParameter("courseId")));
 		bean.setId(DataUtility.getLong(request.getParameter("subjectId")));
 
+		log.info("SubjectListCtl populateBean Method Ended");
 		return bean;
 	}
 
@@ -87,6 +97,7 @@ public class SubjectListCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("SubjectListCtl doGet Method Started");
 
 		int pageNo = 1;
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
@@ -108,12 +119,14 @@ public class SubjectListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
-			ServletUtility.forward(getView(), request, response);
+			
 
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 		}
+		log.info("SubjectListCtl doGet Method Ended");
+		ServletUtility.forward(getView(), request, response);
 	}
 
 	/**
@@ -127,6 +140,8 @@ public class SubjectListCtl extends BaseCtl {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		log.info("SubjectListCtl doPost Method Started");
+
 
 		List list = null;
 		List next = null;
@@ -196,12 +211,15 @@ public class SubjectListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
-			ServletUtility.forward(getView(), request, response);
+			
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 			return;
 		}
+		
+		log.info("SubjectListCtl doPost Method Ended");
+		ServletUtility.forward(getView(), request, response);
 	}
 
 	/**
