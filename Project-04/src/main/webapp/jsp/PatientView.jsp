@@ -19,10 +19,13 @@
 <body>
 
     <form action="<%=ORSView.PATIENT_CTL%>" method="post">
+<<<<<<< HEAD
     
     <%
 			HashMap<String, String> map = (HashMap<String, String>) request.getAttribute("diseaseMap");
 		%>
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
         <%@ include file="Header.jsp" %>
 
@@ -93,9 +96,26 @@
                     <th align="left">Disease<span style="color: red">*</span></th>
                     <td>
                         <%
+<<<<<<< HEAD
                            
                             String diseaseList =
                                 HTMLUtility.getList("disease", bean.getDisease(),map);
+=======
+                            HashMap<String, String> diseaseMap = new HashMap<String, String>();
+                            diseaseMap.put("Diabetes", "Diabetes");
+                            diseaseMap.put("Hypertension", "Hypertension");
+                            diseaseMap.put("Asthma", "Asthma");
+                            diseaseMap.put("Tuberculosis", "Tuberculosis");
+                            diseaseMap.put("Malaria", "Malaria");
+                            diseaseMap.put("Dengue", "Dengue");
+                            diseaseMap.put("Cancer", "Cancer");
+                            diseaseMap.put("Arthritis", "Arthritis");
+                            diseaseMap.put("HIV/AIDS", "HIV/AIDS");
+                            diseaseMap.put("Heart Disease", "Heart Disease");
+
+                            String diseaseList =
+                                HTMLUtility.getList("disease", bean.getDisease(), diseaseMap);
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
                         %>
                         <%=diseaseList%>
                     </td>

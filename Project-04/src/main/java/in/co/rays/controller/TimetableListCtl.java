@@ -8,8 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.TimetableBean;
 import in.co.rays.exception.ApplicationException;
@@ -35,8 +38,11 @@ import in.co.rays.util.ServletUtility;
 @WebServlet(name = "TimetableListCtl", urlPatterns = { "/ctl/TimetableListCtl" })
 public class TimetableListCtl extends BaseCtl {
 	
+<<<<<<< HEAD
 	Logger log = Logger.getLogger(TimetableListCtl.class);
 	
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	/**
      * Preloads the subject and course lists for filter dropdowns in the timetable list view.
      *
@@ -46,7 +52,10 @@ public class TimetableListCtl extends BaseCtl {
 	
 	@Override
 	protected void preload(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("TimetableListCtl preload Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		SubjectModel subjectModel = new SubjectModel();
 		CourseModel courseModel = new CourseModel();
@@ -62,7 +71,10 @@ public class TimetableListCtl extends BaseCtl {
 			e.printStackTrace();
 			return;
 		}
+<<<<<<< HEAD
 		log.info("TimetableListCtl preload Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 	
 	/**
@@ -74,7 +86,10 @@ public class TimetableListCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("TimetableListCtl populateBean Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		TimetableBean bean = new TimetableBean();
 
@@ -82,7 +97,11 @@ public class TimetableListCtl extends BaseCtl {
 		bean.setSubjectId(DataUtility.getLong(request.getParameter("subjectId")));
 		bean.setExamDate(DataUtility.getDate(request.getParameter("examDate")));
 		
+<<<<<<< HEAD
 		log.info("TimetableListCtl populateBean Method Ended");
+=======
+
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 	}
 	
@@ -97,7 +116,10 @@ public class TimetableListCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("TimetableListCtl doGet Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		int pageNo = 1;
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
@@ -119,15 +141,22 @@ public class TimetableListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
+<<<<<<< HEAD
 			
+=======
+			ServletUtility.forward(getView(), request, response);
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
 		
 		log.info("TimetableListCtl doGet Method Ended");
 		ServletUtility.forward(getView(), request, response);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 	
 	/**
@@ -142,7 +171,10 @@ public class TimetableListCtl extends BaseCtl {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("TimetableListCtl doPost Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		List list = null;
 		List next = null;
@@ -210,15 +242,22 @@ public class TimetableListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
+<<<<<<< HEAD
 		
+=======
+			ServletUtility.forward(getView(), request, response);
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 			return;
 		}
+<<<<<<< HEAD
 		
 		log.info("TimetableListCtl doPost Method Ended");
 		ServletUtility.forward(getView(), request, response);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 	
 	/**

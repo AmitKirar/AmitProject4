@@ -40,7 +40,11 @@ public interface ORSView {
 	/** View and controller for My Profile */
 	public String MY_PROFILE_VIEW = PAGE_FOLDER + "/MyProfileView.jsp";
 
+<<<<<<< HEAD
 	public String MY_PROFILE_CTL = APP_CONTEXT + "/ctl/MyProfileCtl";
+=======
+	public String MY_PROFILE_CTL = APP_CONTEXT + "/ctl//MyProfileCtl";
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	/** View and controller for changing password */
 

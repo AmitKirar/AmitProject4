@@ -7,8 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.MarksheetBean;
 import in.co.rays.exception.ApplicationException;
@@ -29,8 +32,11 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "GetMarksheetCtl", urlPatterns = { "/ctl/GetMarksheetCtl" })
 public class GetMarksheetCtl extends BaseCtl {
+<<<<<<< HEAD
 	
 	Logger log = Logger.getLogger(GetMarksheetCtl.class);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	/**
 	 * Validates the Roll Number input field.
@@ -41,7 +47,10 @@ public class GetMarksheetCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("GetMarksheetCtl validate Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		boolean pass = true;
 
@@ -50,7 +59,10 @@ public class GetMarksheetCtl extends BaseCtl {
 			pass = false;
 		}
 
+<<<<<<< HEAD
 		log.info("GetMarksheetCtl validate Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return pass;
 	}
 
@@ -63,13 +75,19 @@ public class GetMarksheetCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("GetMarksheetCtl populateBean Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		MarksheetBean bean = new MarksheetBean();
 
 		bean.setRollNo(DataUtility.getString(request.getParameter("rollNo")));
 
+<<<<<<< HEAD
 		log.info("GetMarksheetCtl populateBean Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 	}
 
@@ -84,10 +102,14 @@ public class GetMarksheetCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("GetMarksheetCtl doGet Method Started");
 		
 		ServletUtility.forward(getView(), request, response);
 		log.info("GetMarksheetCtl doGet Method Ended");
+=======
+		ServletUtility.forward(getView(), request, response);
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**
@@ -101,7 +123,10 @@ public class GetMarksheetCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("GetMarksheetCtl doPost Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -124,8 +149,11 @@ public class GetMarksheetCtl extends BaseCtl {
 				return;
 			}
 		}
+<<<<<<< HEAD
 		
 		log.info("GetMarksheetCtl doPost Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 

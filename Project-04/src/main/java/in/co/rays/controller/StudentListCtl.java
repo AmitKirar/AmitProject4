@@ -8,8 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.StudentBean;
 import in.co.rays.exception.ApplicationException;
@@ -29,7 +32,10 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "StudentListCtl", urlPatterns = { "/ctl/StudentListCtl" })
 public class StudentListCtl extends BaseCtl {
+<<<<<<< HEAD
 	Logger log = Logger.getLogger(StudentListCtl.class);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	/**
 	 * Populates the StudentBean from request parameters.
@@ -40,8 +46,11 @@ public class StudentListCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("StudentListCtl populateBean Method Started");
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		StudentBean bean = new StudentBean();
 
@@ -49,7 +58,10 @@ public class StudentListCtl extends BaseCtl {
 		bean.setLastName(DataUtility.getString(request.getParameter("lastName")));
 		bean.setEmail(DataUtility.getString(request.getParameter("email")));
 
+<<<<<<< HEAD
 		log.info("StudentListCtl populateBean Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 	}
 
@@ -62,7 +74,10 @@ public class StudentListCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("StudentListCtl doGet Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		int pageNo = 1;
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
@@ -84,14 +99,21 @@ public class StudentListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
+<<<<<<< HEAD
 			
+=======
+			ServletUtility.forward(getView(), request, response);
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
 		log.info("StudentListCtl doGet Method Ended");
 		ServletUtility.forward(getView(), request, response);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**
@@ -104,8 +126,11 @@ public class StudentListCtl extends BaseCtl {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("StudentListCtl doPost Method Started");
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		List list = null;
 		List next = null;
@@ -171,15 +196,22 @@ public class StudentListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
+<<<<<<< HEAD
 			
+=======
+			ServletUtility.forward(getView(), request, response);
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 			return;
 		}
+<<<<<<< HEAD
 		
 		log.info("StudentListCtl doPost Method Ended");
 		ServletUtility.forward(getView(), request, response);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**

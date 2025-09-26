@@ -7,8 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.RoleBean;
 import in.co.rays.exception.ApplicationException;
@@ -36,8 +39,11 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "RoleCtl", urlPatterns = { "/ctl/RoleCtl" })
 public class RoleCtl extends BaseCtl {
+<<<<<<< HEAD
 	
 	Logger log = Logger.getLogger(RoleCtl.class);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	/**
 	 * Validates input fields for role name and description.
@@ -48,7 +54,10 @@ public class RoleCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("RoleCtl validate Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		boolean pass = true;
 
@@ -64,7 +73,10 @@ public class RoleCtl extends BaseCtl {
 			request.setAttribute("description", PropertyReader.getValue("error.require", "Description"));
 			pass = false;
 		}
+<<<<<<< HEAD
 		log.info("RoleCtl validate Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return pass;
 	}
 
@@ -77,7 +89,10 @@ public class RoleCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("RoleCtl populateBean Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		RoleBean bean = new RoleBean();
 
@@ -87,7 +102,10 @@ public class RoleCtl extends BaseCtl {
 
 		populateDTO(bean, request);
 
+<<<<<<< HEAD
 		log.info("RoleCtl populateBean Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 	}
 
@@ -102,7 +120,10 @@ public class RoleCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+<<<<<<< HEAD
 		log.info("RoleCtl doGet Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -122,7 +143,10 @@ public class RoleCtl extends BaseCtl {
 			}
 		}
 
+<<<<<<< HEAD
 		log.info("RoleCtl doGet Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 
@@ -137,7 +161,10 @@ public class RoleCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("RoleCtl doPost Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -187,7 +214,10 @@ public class RoleCtl extends BaseCtl {
 			ServletUtility.redirect(ORSView.ROLE_CTL, request, response);
 			return;
 		}
+<<<<<<< HEAD
 		log.info("RoleCtl doPost Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 

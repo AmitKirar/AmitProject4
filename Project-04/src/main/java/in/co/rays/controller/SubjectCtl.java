@@ -8,8 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.SubjectBean;
 import in.co.rays.exception.ApplicationException;
@@ -32,8 +35,11 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "SubjectCtl", urlPatterns = { "/ctl/SubjectCtl" })
 public class SubjectCtl extends BaseCtl {
+<<<<<<< HEAD
 	
 	Logger log = Logger.getLogger(SubjectCtl.class);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	/**
 	 * Loads the list of courses to be shown in the subject form dropdown.
@@ -43,9 +49,12 @@ public class SubjectCtl extends BaseCtl {
 
 	@Override
 	protected void preload(HttpServletRequest request) {
+<<<<<<< HEAD
 		
 		log.info("SubjectCtl preload Method Started");
 		
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		CourseModel courseModel = new CourseModel();
 		try {
 			List courseList = courseModel.list();
@@ -54,7 +63,10 @@ public class SubjectCtl extends BaseCtl {
 			e.printStackTrace();
 			return;
 		}
+<<<<<<< HEAD
 		log.info("SubjectCtl preload Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**
@@ -66,7 +78,10 @@ public class SubjectCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("SubjectCtl validate Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		boolean pass = true;
 
@@ -85,7 +100,10 @@ public class SubjectCtl extends BaseCtl {
 			pass = false;
 		}
 
+<<<<<<< HEAD
 		log.info("SubjectCtl validate Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return pass;
 	}
 
@@ -98,7 +116,10 @@ public class SubjectCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("SubjectCtl populateBean Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		SubjectBean bean = new SubjectBean();
 
@@ -109,7 +130,10 @@ public class SubjectCtl extends BaseCtl {
 
 		populateDTO(bean, request);
 
+<<<<<<< HEAD
 		log.info("SubjectCtl populateBean Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 	}
 
@@ -122,7 +146,10 @@ public class SubjectCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("SubjectCtl doGet Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		long id = DataUtility.getLong(request.getParameter("id"));
 
@@ -137,8 +164,11 @@ public class SubjectCtl extends BaseCtl {
 				return;
 			}
 		}
+<<<<<<< HEAD
 		
 		log.info("SubjectCtl doGet Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 
@@ -151,7 +181,10 @@ public class SubjectCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("SubjectCtl doPost Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -194,7 +227,10 @@ public class SubjectCtl extends BaseCtl {
 			ServletUtility.redirect(ORSView.SUBJECT_CTL, request, response);
 			return;
 		}
+<<<<<<< HEAD
 		log.info("SubjectCtl doPost Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 

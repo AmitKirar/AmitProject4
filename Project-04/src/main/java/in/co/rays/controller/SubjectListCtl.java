@@ -8,8 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.SubjectBean;
 import in.co.rays.exception.ApplicationException;
@@ -31,8 +34,11 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "SubjectListCtl", urlPatterns = { "/ctl/SubjectListCtl" })
 public class SubjectListCtl extends BaseCtl {
+<<<<<<< HEAD
 	
 	Logger log = Logger.getLogger(SubjectListCtl.class);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	/**
 	 * Loads data required to display on the subject list page such as subject list
@@ -43,8 +49,11 @@ public class SubjectListCtl extends BaseCtl {
 
 	@Override
 	protected void preload(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("SubjectListCtl preload Method Started");
 		
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		SubjectModel subjectModel = new SubjectModel();
 		CourseModel courseModel = new CourseModel();
@@ -61,7 +70,10 @@ public class SubjectListCtl extends BaseCtl {
 			e.printStackTrace();
 			return;
 		}
+<<<<<<< HEAD
 		log.info("SubjectListCtl preload Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**
@@ -73,8 +85,11 @@ public class SubjectListCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("SubjectListCtl populateBean Method Started");
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		SubjectBean bean = new SubjectBean();
 
@@ -84,7 +99,10 @@ public class SubjectListCtl extends BaseCtl {
 		bean.setCourseId(DataUtility.getLong(request.getParameter("courseId")));
 		bean.setId(DataUtility.getLong(request.getParameter("subjectId")));
 
+<<<<<<< HEAD
 		log.info("SubjectListCtl populateBean Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 	}
 
@@ -97,7 +115,10 @@ public class SubjectListCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("SubjectListCtl doGet Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		int pageNo = 1;
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
@@ -119,14 +140,21 @@ public class SubjectListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
+<<<<<<< HEAD
 			
+=======
+			ServletUtility.forward(getView(), request, response);
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
 		log.info("SubjectListCtl doGet Method Ended");
 		ServletUtility.forward(getView(), request, response);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**
@@ -140,8 +168,11 @@ public class SubjectListCtl extends BaseCtl {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("SubjectListCtl doPost Method Started");
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		List list = null;
 		List next = null;
@@ -211,15 +242,22 @@ public class SubjectListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
+<<<<<<< HEAD
 			
+=======
+			ServletUtility.forward(getView(), request, response);
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 			return;
 		}
+<<<<<<< HEAD
 		
 		log.info("SubjectListCtl doPost Method Ended");
 		ServletUtility.forward(getView(), request, response);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**

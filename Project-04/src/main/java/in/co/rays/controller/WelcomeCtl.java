@@ -7,8 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.util.ServletUtility;
 
 /**
@@ -27,8 +30,11 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "WelcomeCtl", urlPatterns = { "/WelcomeCtl" })
 public class WelcomeCtl extends BaseCtl {
+<<<<<<< HEAD
 	
 	Logger log  = Logger.getLogger(WelcomeCtl.class);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	/**
 	 * Handles GET requests for the welcome page.
@@ -45,11 +51,16 @@ public class WelcomeCtl extends BaseCtl {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("WelcomeCtl doGet Method Started");
 		
 		ServletUtility.forward(getView(), request, response);
 
 		log.info("WelcomeCtl doGet Method Ended");
+=======
+		ServletUtility.forward(getView(), request, response);
+
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**

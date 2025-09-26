@@ -148,4 +148,8 @@
 	<%@include file="Footer.jsp"%>
 
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da

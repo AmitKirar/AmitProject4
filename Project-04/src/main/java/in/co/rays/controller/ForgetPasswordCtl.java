@@ -7,8 +7,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.UserBean;
 import in.co.rays.exception.ApplicationException;
@@ -30,8 +33,11 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "ForgetPasswordCtl", urlPatterns = { "/ForgetPasswordCtl" })
 public class ForgetPasswordCtl extends BaseCtl {
+<<<<<<< HEAD
 	
 	Logger log = Logger.getLogger(ForgetPasswordCtl.class);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	/**
 	 * Validates the input from the forget password form.
@@ -42,7 +48,10 @@ public class ForgetPasswordCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("ForgetPasswordCtl validate Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		boolean pass = true;
 
@@ -53,8 +62,12 @@ public class ForgetPasswordCtl extends BaseCtl {
 			request.setAttribute("login", PropertyReader.getValue("error.email", "Login "));
 			pass = false;
 		}
+<<<<<<< HEAD
 		
 		log.info("ForgetPasswordCtl validate Method Ended");
+=======
+
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return pass;
 	}
 
@@ -67,13 +80,20 @@ public class ForgetPasswordCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("ForgetPasswordCtl populateBean Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		UserBean bean = new UserBean();
 
 		bean.setLogin(DataUtility.getString(request.getParameter("login")));
+<<<<<<< HEAD
 		
 		   log.info("ForgetPasswordCtl populateBean Method Ended");
+=======
+
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 	}
 
@@ -88,11 +108,15 @@ public class ForgetPasswordCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("ForgetPasswordCtl doGet Method Started");
 		
 		ServletUtility.forward(getView(), request, response);
 		
 	 	log.info("ForgetPasswordCtl doGet Method Ended");
+=======
+		ServletUtility.forward(getView(), request, response);
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**
@@ -107,7 +131,10 @@ public class ForgetPasswordCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("ForgetPasswordCtl doPost Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -128,8 +155,11 @@ public class ForgetPasswordCtl extends BaseCtl {
 				e.printStackTrace();
 				ServletUtility.setErrorMessage("Please check your internet connection..!!", request);
 			}
+<<<<<<< HEAD
 			
 			 log.info("ForgetPasswordCtl doPost Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 			ServletUtility.forward(getView(), request, response);
 		}
 	}

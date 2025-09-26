@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.UserBean;
 import in.co.rays.exception.ApplicationException;
@@ -38,8 +41,11 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "MyProfileCtl", urlPatterns = { "/ctl/MyProfileCtl" })
 public class MyProfileCtl extends BaseCtl {
+<<<<<<< HEAD
 	
 	Logger log = Logger.getLogger(MyProfileCtl.class);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	public static final String OP_CHANGE_MY_PASSWORD = "Change Password";
 
@@ -53,7 +59,10 @@ public class MyProfileCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("MyProfileCtl validate Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		boolean pass = true;
 
@@ -100,7 +109,10 @@ public class MyProfileCtl extends BaseCtl {
 			pass = false;
 		}
 
+<<<<<<< HEAD
 		log.info("MyProfileCtl validate Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return pass;
 	}
 
@@ -113,7 +125,10 @@ public class MyProfileCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("MyProfileCtl populateBean Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		UserBean bean = new UserBean();
 
@@ -147,7 +162,10 @@ public class MyProfileCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("MyProfileCtl doGet Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		HttpSession session = request.getSession(true);
 		UserBean user = (UserBean) session.getAttribute("user");
@@ -165,7 +183,10 @@ public class MyProfileCtl extends BaseCtl {
 				return;
 			}
 		}
+<<<<<<< HEAD
 		log.info("MyProfileCtl doGet Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 
@@ -181,7 +202,10 @@ public class MyProfileCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("MyProfileCtl doPost Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		HttpSession session = request.getSession(true);
 
@@ -217,7 +241,10 @@ public class MyProfileCtl extends BaseCtl {
 			ServletUtility.redirect(ORSView.CHANGE_PASSWORD_CTL, request, response);
 			return;
 		}
+<<<<<<< HEAD
 		log.info("MyProfileCtl doPost Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 

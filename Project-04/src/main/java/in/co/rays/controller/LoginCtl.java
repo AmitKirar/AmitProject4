@@ -8,8 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.RoleBean;
 import in.co.rays.bean.UserBean;
@@ -30,8 +33,11 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "LoginCtl", urlPatterns = { "/LoginCtl" })
 public class LoginCtl extends BaseCtl {
+<<<<<<< HEAD
 	
 	Logger log = Logger.getLogger(LoginCtl.class);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	public static final String OP_REGISTER = "Register";
 	public static final String OP_SIGN_IN = "Sign In";
@@ -47,7 +53,10 @@ public class LoginCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("LoginCtl validate Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		boolean pass = true;
 		
@@ -70,7 +79,10 @@ public class LoginCtl extends BaseCtl {
 			pass = false;
 		}
 
+<<<<<<< HEAD
 		log.info("LoginCtl validate Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return pass;
 
 	}
@@ -84,6 +96,7 @@ public class LoginCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("LoginCtl populateBean Method Started");
 
 		UserBean bean = new UserBean();
@@ -93,6 +106,12 @@ public class LoginCtl extends BaseCtl {
 		bean.setPassword(DataUtility.getString(request.getParameter("password")));
 		
 		log.info("LoginCtl populateBean Method Ended");
+=======
+		UserBean bean = new UserBean();
+		bean.setId(DataUtility.getLong(request.getParameter("id")));
+		bean.setLogin(DataUtility.getString(request.getParameter("login")));
+		bean.setPassword(DataUtility.getString(request.getParameter("password")));
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 
 	}
@@ -109,7 +128,10 @@ public class LoginCtl extends BaseCtl {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("LoginCtl doGet Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		HttpSession session = request.getSession();
 		String op = DataUtility.getString(request.getParameter("operation"));
@@ -122,7 +144,10 @@ public class LoginCtl extends BaseCtl {
 
 		}
 
+<<<<<<< HEAD
 		log.info("LoginCtl doGet Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 
@@ -138,9 +163,12 @@ public class LoginCtl extends BaseCtl {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		
 		log.info("LoginCtl doPost Method Started");
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		HttpSession session = request.getSession();
 
 		String op = DataUtility.getString(request.getParameter("operation"));
@@ -190,8 +218,11 @@ public class LoginCtl extends BaseCtl {
 			return;
 
 		}
+<<<<<<< HEAD
 		
 		log.info("LoginCtl doPost Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 
 	}

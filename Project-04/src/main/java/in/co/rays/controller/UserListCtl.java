@@ -9,8 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.RoleBean;
 import in.co.rays.bean.UserBean;
@@ -36,7 +39,10 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "UserListCtl", urlPatterns = { "/ctl/UserListCtl" })
 public class UserListCtl extends BaseCtl {
+<<<<<<< HEAD
 	Logger log = Logger.getLogger(UserListCtl.class);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	/**
 	 * Populates the UserBean from request parameters for search criteria.
@@ -47,16 +53,22 @@ public class UserListCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 
 		log.info("UserListCtl populateBean Method Started");
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		UserBean bean = new UserBean();
 		bean.setFirstname(DataUtility.getString(request.getParameter("firstName")));
 
 		bean.setRoleId(DataUtility.getLong(request.getParameter("roleId")));
 		bean.setLogin(DataUtility.getString(request.getParameter("login")));
+<<<<<<< HEAD
 
 		log.info("UserListCtl populateBean Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 	}
 
@@ -68,8 +80,11 @@ public class UserListCtl extends BaseCtl {
 
 	@Override
 	protected void preload(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("UserListCtl preload Method Started");
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		RoleModel roleModel = new RoleModel();
 		try {
 			List rolelist = roleModel.list();
@@ -77,10 +92,14 @@ public class UserListCtl extends BaseCtl {
 		} catch (Exception e) {
 
 			e.printStackTrace();
+<<<<<<< HEAD
 
 			return;
 		}
 		log.info("UserListCtl preload Method Ended");
+=======
+		}
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	}
 
@@ -94,9 +113,12 @@ public class UserListCtl extends BaseCtl {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 
 		log.info("UserListCtl doGet Method Started");
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		int pageNo = 1;
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
 		UserBean bean = (UserBean) populateBean(request);
@@ -117,14 +139,22 @@ public class UserListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
+<<<<<<< HEAD
+=======
+			ServletUtility.forward(getView(), request, response);
+
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
 
+<<<<<<< HEAD
 		log.info("UserListCtl doGet Method Ended");
 		ServletUtility.forward(getView(), request, response);
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**
@@ -137,7 +167,10 @@ public class UserListCtl extends BaseCtl {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("UserListCtl doPost Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		List list = null;
 		List next = null;
@@ -219,14 +252,21 @@ public class UserListCtl extends BaseCtl {
 			ServletUtility.setBean(bean, request);
 			request.setAttribute("nextListSize", next.size());
 
+<<<<<<< HEAD
+=======
+			ServletUtility.forward(getView(), request, response);
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		} catch (ApplicationException e) {
 			ServletUtility.handleException(e, request, response);
 			e.printStackTrace();
 			return;
 		}
+<<<<<<< HEAD
 
 		log.info("UserListCtl doPost Method Ended");
 		ServletUtility.forward(getView(), request, response);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**

@@ -13,8 +13,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.PatientBean;
 import in.co.rays.exception.ApplicationException;
@@ -23,6 +26,7 @@ import in.co.rays.util.DataUtility;
 import in.co.rays.util.PropertyReader;
 import in.co.rays.util.ServletUtility;
 
+<<<<<<< HEAD
 
 /**
  * PatientListCtl Servlet Controller.
@@ -43,6 +47,13 @@ public class PatientListCtl extends BaseCtl {
 	@Override
 	protected void preload(HttpServletRequest request) {
 		log.info("PatientListCtl preload Method Started");
+=======
+@WebServlet(name = "PatientListCtl", urlPatterns = { "/ctl/PatientListCtl" })
+public class PatientListCtl extends BaseCtl {
+
+	@Override
+	protected void preload(HttpServletRequest request) {
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		PatientModel model = new PatientModel();
 		try {
@@ -63,6 +74,7 @@ public class PatientListCtl extends BaseCtl {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
 
 		log.info("PatientListCtl preload Method Ended");
 	}
@@ -77,12 +89,19 @@ public class PatientListCtl extends BaseCtl {
 	protected BaseBean populateBean(HttpServletRequest request) {
 		log.info("PatientListCtl populateBean Method Started");
 
+=======
+	}
+
+	@Override
+	protected BaseBean populateBean(HttpServletRequest request) {
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		PatientBean bean = new PatientBean();
 
 		bean.setDisease(DataUtility.getString(request.getParameter("disease")));
 		bean.setName(DataUtility.getString(request.getParameter("name")));
 
 		populateDTO(bean, request);
+<<<<<<< HEAD
 
 		log.info("PatientListCtl populateBean Method Ended");
 
@@ -93,11 +112,18 @@ public class PatientListCtl extends BaseCtl {
      * Handles HTTP GET requests.
      * Displays first page of patient list with pagination.
      */
+=======
+		return bean;
+	}
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+<<<<<<< HEAD
 		log.info("PatientListCtl doGet Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		int pageNo = 1;
 		int pageSize = DataUtility.getInt(PropertyReader.getValue("page.size"));
@@ -124,6 +150,7 @@ public class PatientListCtl extends BaseCtl {
 		} catch (ApplicationException e) {
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
 
 		log.info("PatientListCtl doGet Method Ended");
 	}
@@ -132,13 +159,19 @@ public class PatientListCtl extends BaseCtl {
      * Handles HTTP POST requests.
      * Performs search, next, previous, new, delete, reset and back operations.
      */
+=======
+	}
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+<<<<<<< HEAD
 		log.info("PatientListCtl doPost Method Started");
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		List list = null;
 		List next = null;
 
@@ -205,6 +238,7 @@ public class PatientListCtl extends BaseCtl {
 		} catch (ApplicationException e) {
 			e.printStackTrace();
 		}
+<<<<<<< HEAD
 
 		log.info("PatientListCtl doPost Method Ended");
 	}
@@ -212,6 +246,10 @@ public class PatientListCtl extends BaseCtl {
 	 /**
      * Returns the view page for patient.
      */
+=======
+	}
+
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	@Override
 	protected String getView() {
 

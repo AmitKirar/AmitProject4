@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 	package in.co.rays.controller;
+=======
+package in.co.rays.controller;
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 import java.io.IOException;
 import java.util.List;
@@ -8,8 +12,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.TimetableBean;
 import in.co.rays.exception.ApplicationException;
@@ -34,8 +41,11 @@ import in.co.rays.util.ServletUtility;
 
 @WebServlet(name = "TimetableCtl", urlPatterns = { "/ctl/TimetableCtl" })
 public class TimetableCtl extends BaseCtl {
+<<<<<<< HEAD
 	
 	Logger log = Logger.getLogger(TimetableCtl.class);
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 	/**
 	 * Preloads subject and course lists to be shown in the dropdowns on the UI.
@@ -45,7 +55,10 @@ public class TimetableCtl extends BaseCtl {
 
 	@Override
 	protected void preload(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("TimetableCtl preload Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		SubjectModel subjectModel = new SubjectModel();
 		CourseModel courseModel = new CourseModel();
@@ -61,7 +74,10 @@ public class TimetableCtl extends BaseCtl {
 			e.printStackTrace();
 			return;
 		}
+<<<<<<< HEAD
 		log.info("TimetableCtl preload Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**
@@ -73,7 +89,10 @@ public class TimetableCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("TimetableCtl validate Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		boolean pass = true;
 
@@ -113,7 +132,10 @@ public class TimetableCtl extends BaseCtl {
 			pass = false;
 		}
 
+<<<<<<< HEAD
 		log.info("TimetableCtl validate Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return pass;
 	}
 
@@ -126,7 +148,10 @@ public class TimetableCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("TimetableCtl populateBean Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		TimetableBean bean = new TimetableBean();
 
@@ -140,7 +165,10 @@ public class TimetableCtl extends BaseCtl {
 
 		populateDTO(bean, request);
 
+<<<<<<< HEAD
 		log.info("TimetableCtl populateBean Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 	}
 
@@ -153,7 +181,10 @@ public class TimetableCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("TimetableCtl doGet Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		long id = DataUtility.getLong(request.getParameter("id"));
 
@@ -169,7 +200,10 @@ public class TimetableCtl extends BaseCtl {
 				return;
 			}
 		}
+<<<<<<< HEAD
 		log.info("TimetableCtl doGet Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 
@@ -182,8 +216,11 @@ public class TimetableCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("TimetableCtl doPost Method Started");
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -260,7 +297,10 @@ public class TimetableCtl extends BaseCtl {
 			ServletUtility.redirect(ORSView.TIMETABLE_CTL, request, response);
 			return;
 		}
+<<<<<<< HEAD
 		log.info("TimetableCtl doPost Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 

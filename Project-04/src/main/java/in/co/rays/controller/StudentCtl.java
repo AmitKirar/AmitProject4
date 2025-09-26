@@ -8,8 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.StudentBean;
 import in.co.rays.exception.ApplicationException;
@@ -44,8 +47,11 @@ import in.co.rays.util.ServletUtility;
 @WebServlet(name = "StudentCtl", urlPatterns = { "/ctl/StudentCtl" })
 public class StudentCtl extends BaseCtl {
 
+<<<<<<< HEAD
 	Logger log = Logger.getLogger(StudentCtl.class);
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	/**
 	 * Loads the list of colleges and sets it in the request scope for dropdown
 	 * population.
@@ -55,8 +61,11 @@ public class StudentCtl extends BaseCtl {
 
 	@Override
 	protected void preload(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("StudentCtl preload Method Started");
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		CollegeModel model = new CollegeModel();
 		try {
 			List collegeList = model.list();
@@ -66,7 +75,10 @@ public class StudentCtl extends BaseCtl {
 			e.printStackTrace();
 			return;
 		}
+<<<<<<< HEAD
 		log.info("StudentCtl preload Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**
@@ -78,7 +90,10 @@ public class StudentCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("StudentCtl validate Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		boolean pass = true;
 
@@ -129,7 +144,10 @@ public class StudentCtl extends BaseCtl {
 			pass = false;
 		}
 
+<<<<<<< HEAD
 		log.info("StudentCtl validate Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return pass;
 	}
 
@@ -142,7 +160,10 @@ public class StudentCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("StudentCtl populateBean Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		StudentBean bean = new StudentBean();
 
@@ -157,7 +178,10 @@ public class StudentCtl extends BaseCtl {
 
 		populateDTO(bean, request);
 
+<<<<<<< HEAD
 		log.info("StudentCtl populateBean Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 	}
 
@@ -173,7 +197,10 @@ public class StudentCtl extends BaseCtl {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("StudentCtl doGet Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 		long id = DataUtility.getLong(request.getParameter("id"));
@@ -191,8 +218,11 @@ public class StudentCtl extends BaseCtl {
 				return;
 			}
 		}
+<<<<<<< HEAD
 
 		log.info("StudentCtl doGet Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 
@@ -207,7 +237,10 @@ public class StudentCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
+<<<<<<< HEAD
 		log.info("StudentCtl doPost Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -248,7 +281,10 @@ public class StudentCtl extends BaseCtl {
 			ServletUtility.redirect(ORSView.STUDENT_CTL, request, response);
 			return;
 		}
+<<<<<<< HEAD
 		log.info("StudentCtl doPost Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 

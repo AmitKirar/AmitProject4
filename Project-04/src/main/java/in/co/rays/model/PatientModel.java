@@ -12,6 +12,7 @@ import in.co.rays.bean.PatientBean;
 import in.co.rays.exception.ApplicationException;
 import in.co.rays.util.JDBCDataSource;
 
+<<<<<<< HEAD
 /**
  * Model class for Patient. Handles add, update, delete, find, list and search
  * operations.
@@ -23,6 +24,10 @@ public class PatientModel {
 	/**
 	 * Returns the next primary key for patient table.
 	 */
+=======
+public class PatientModel {
+
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	public Integer nextPK() throws SQLException {
 
 		int pk = 0;
@@ -43,12 +48,15 @@ public class PatientModel {
 		return pk + 1;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Adds a new patient record in the database.
 	 * 
 	 * @param bean patient details
 	 * @return generated primary key
 	 */
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	public long add(PatientBean bean) throws ApplicationException {
 
 		Connection conn = null;
@@ -88,11 +96,14 @@ public class PatientModel {
 		return pk;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Updates an existing patient record.
 	 * 
 	 * @param bean patient details to update
 	 */
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	public void update(PatientBean bean) throws ApplicationException {
 
 		Connection conn = null;
@@ -129,11 +140,14 @@ public class PatientModel {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Deletes a patient record by id.
 	 * 
 	 * @param bean patient id
 	 */
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	public void delete(PatientBean bean) throws ApplicationException {
 
 		Connection conn = null;
@@ -160,12 +174,15 @@ public class PatientModel {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Finds a patient by primary key.
 	 * 
 	 * @param pk patient id
 	 * @return patient details
 	 */
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	public PatientBean findByPk(long pk) throws ApplicationException {
 
 		PatientBean bean = null;
@@ -202,13 +219,17 @@ public class PatientModel {
 		return bean;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns all patient records.
 	 */
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	public List list() throws ApplicationException {
 		return search(null, 0, 0);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Searches patient records by given criteria.
 	 * 
@@ -276,4 +297,66 @@ public class PatientModel {
 		return list;
 	}
 
+=======
+	public List search(PatientBean bean, int pageNo, int pageSize) throws ApplicationException {
+
+	    Connection conn = null;
+	    ArrayList list = new ArrayList();
+
+	    StringBuffer sql = new StringBuffer("SELECT * FROM st_patient WHERE 1=1 ");
+
+	    if (bean != null) {
+	        if (bean.getId() > 0) {
+	            sql.append(" AND id = " + bean.getId());
+	        }
+	        if (bean.getName() != null && bean.getName().length() > 0) {
+	            sql.append(" AND name LIKE '" + bean.getName() + "%'");
+	        }
+	        if (bean.getDisease() != null && bean.getDisease().length() > 0) {
+	            sql.append(" AND disease LIKE '" + bean.getDisease() + "%'");
+	        }
+	        if (bean.getMobileNo() != null && bean.getMobileNo().length() > 0) {
+	            sql.append(" AND mobileNo LIKE '" + bean.getMobileNo() + "%'");
+	        }
+	        if (bean.getDateofvisit() != null) {
+	            sql.append(" AND dateofvisit = '" + new java.sql.Date(bean.getDateofvisit().getTime()) + "'");
+	        }
+	    }
+
+	    if (pageSize > 0) {
+	        pageNo = (pageNo - 1) * pageSize;
+	        sql.append(" LIMIT " + pageNo + ", " + pageSize);
+	    }
+
+	    try {
+	        conn = JDBCDataSource.getConnection();
+	        PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+	        ResultSet rs = pstmt.executeQuery();
+
+	        while (rs.next()) {
+	            PatientBean pb = new PatientBean();
+	            pb.setId(rs.getLong(1));
+	            pb.setName(rs.getString(2));
+	            pb.setDateofvisit(rs.getDate(3));
+	            pb.setMobileNo(rs.getString(4));
+	            pb.setDisease(rs.getString(5));
+	            pb.setCreatedBy(rs.getString(6));
+	            pb.setModifiedBy(rs.getString(7));
+	            pb.setCreatedDatetime(rs.getTimestamp(8));
+	            pb.setModifiedDatetime(rs.getTimestamp(9));
+
+	            list.add(pb);
+	        }
+	        rs.close();
+	        pstmt.close();
+	    } catch (Exception e) {
+	        throw new ApplicationException("Exception : Exception in search user " + e.getMessage());
+	    } finally {
+	        JDBCDataSource.closeConnection(conn);
+	    }
+	    return list;
+	}
+
+
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 }

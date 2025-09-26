@@ -8,8 +8,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.apache.log4j.Logger;
 
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 import in.co.rays.bean.BaseBean;
 import in.co.rays.bean.MarksheetBean;
 import in.co.rays.exception.ApplicationException;
@@ -34,8 +37,11 @@ import in.co.rays.util.ServletUtility;
 @WebServlet(name = "MarksheetCtl", urlPatterns = { "/ctl/MarksheetCtl" })
 public class MarksheetCtl extends BaseCtl {
 
+<<<<<<< HEAD
 	Logger log = Logger.getLogger(MarksheetCtl.class);
 	
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	/**
 	 * Preloads student list to be displayed on the form.
 	 *
@@ -44,8 +50,11 @@ public class MarksheetCtl extends BaseCtl {
 
 	@Override
 	protected void preload(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("MarksheetCtl preload Method Started");
 		
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		StudentModel studentModel = new StudentModel();
 		try {
 			List studentList = studentModel.list();
@@ -54,7 +63,10 @@ public class MarksheetCtl extends BaseCtl {
 			e.printStackTrace();
 			return;
 		}
+<<<<<<< HEAD
 		log.info("MarksheetCtl preload Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 	}
 
 	/**
@@ -66,7 +78,10 @@ public class MarksheetCtl extends BaseCtl {
 
 	@Override
 	protected boolean validate(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("MarksheetCtl validate Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		boolean pass = true;
 
@@ -127,7 +142,10 @@ public class MarksheetCtl extends BaseCtl {
 			pass = false;
 		}
 
+<<<<<<< HEAD
 		log.info("MarksheetCtl validate Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return pass;
 	}
 
@@ -140,7 +158,10 @@ public class MarksheetCtl extends BaseCtl {
 
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
+<<<<<<< HEAD
 		log.info("MarksheetCtl populateBean Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		MarksheetBean bean = new MarksheetBean();
 
@@ -162,7 +183,10 @@ public class MarksheetCtl extends BaseCtl {
 
 		populateDTO(bean, request);
 
+<<<<<<< HEAD
 		log.info("MarksheetCtl populateBean Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		return bean;
 	}
 
@@ -177,7 +201,10 @@ public class MarksheetCtl extends BaseCtl {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("MarksheetCtl doGet Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		long id = DataUtility.getLong(request.getParameter("id"));
 
@@ -193,8 +220,11 @@ public class MarksheetCtl extends BaseCtl {
 				return;
 			}
 		}
+<<<<<<< HEAD
 		
 		log.info("MarksheetCtl doGet Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 
@@ -209,7 +239,10 @@ public class MarksheetCtl extends BaseCtl {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+<<<<<<< HEAD
 		log.info("MarksheetCtl doPost Method Started");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 
 		String op = DataUtility.getString(request.getParameter("operation"));
 
@@ -254,8 +287,11 @@ public class MarksheetCtl extends BaseCtl {
 			ServletUtility.redirect(ORSView.MARKSHEET_CTL, request, response);
 			return;
 		}
+<<<<<<< HEAD
 		
 		log.info("MarksheetCtl doPost Method Ended");
+=======
+>>>>>>> c0449d83a871c9402a2357c7baaa3afecc4081da
 		ServletUtility.forward(getView(), request, response);
 	}
 
