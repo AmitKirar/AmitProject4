@@ -1,0 +1,20 @@
+# Ignore MySQL runtime data
+Project-04/mysql-data/
+Project-04/Project-04/
+
+# Ignore build output
+Project-04/target/
+
+# Ignore IDE settings
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# Ignore OS files
+*.log
+*.tmp
+
+# Ignore generated docs
+Project-04/src/main/webapp/doc/
