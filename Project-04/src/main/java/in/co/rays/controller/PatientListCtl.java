@@ -23,23 +23,20 @@ import in.co.rays.util.DataUtility;
 import in.co.rays.util.PropertyReader;
 import in.co.rays.util.ServletUtility;
 
-
 /**
- * PatientListCtl Servlet Controller.
- * Handles list, search, delete and pagination operations for patients.
+ * PatientListCtl Servlet Controller. Handles list, search, delete and
+ * pagination operations for patients.
  *
- * author Amit
- * version 1.0
+ * author Amit version 1.0
  */
 @WebServlet(name = "PatientListCtl", urlPatterns = { "/ctl/PatientListCtl" })
 public class PatientListCtl extends BaseCtl {
 
 	Logger log = Logger.getLogger(UserCtl.class);
 
-	
-	 /**
-     * Preloads patient data and sets disease map for dropdowns.
-     */
+	/**
+	 * Preloads patient data and sets disease map for dropdowns.
+	 */
 	@Override
 	protected void preload(HttpServletRequest request) {
 		log.info("PatientListCtl preload Method Started");
@@ -67,12 +64,12 @@ public class PatientListCtl extends BaseCtl {
 		log.info("PatientListCtl preload Method Ended");
 	}
 
-	 /**
-     * Populates PatientBean with search parameters.
-     *
-     * @param request HTTP request
-     * @return populated PatientBean
-     */
+	/**
+	 * Populates PatientBean with search parameters.
+	 *
+	 * @param request HTTP request
+	 * @return populated PatientBean
+	 */
 	@Override
 	protected BaseBean populateBean(HttpServletRequest request) {
 		log.info("PatientListCtl populateBean Method Started");
@@ -81,6 +78,8 @@ public class PatientListCtl extends BaseCtl {
 
 		bean.setDisease(DataUtility.getString(request.getParameter("disease")));
 		bean.setName(DataUtility.getString(request.getParameter("name")));
+		bean.setMobileNo(DataUtility.getString(request.getParameter("mobileNo")));
+		bean.setDateofvisit(DataUtility.getDate(request.getParameter("dateofvisit")));
 
 		populateDTO(bean, request);
 
@@ -88,11 +87,11 @@ public class PatientListCtl extends BaseCtl {
 
 		return bean;
 	}
-	
-	 /**
-     * Handles HTTP GET requests.
-     * Displays first page of patient list with pagination.
-     */
+
+	/**
+	 * Handles HTTP GET requests. Displays first page of patient list with
+	 * pagination.
+	 */
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -127,11 +126,11 @@ public class PatientListCtl extends BaseCtl {
 
 		log.info("PatientListCtl doGet Method Ended");
 	}
-	
+
 	/**
-     * Handles HTTP POST requests.
-     * Performs search, next, previous, new, delete, reset and back operations.
-     */
+	 * Handles HTTP POST requests. Performs search, next, previous, new, delete,
+	 * reset and back operations.
+	 */
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -209,9 +208,9 @@ public class PatientListCtl extends BaseCtl {
 		log.info("PatientListCtl doPost Method Ended");
 	}
 
-	 /**
-     * Returns the view page for patient.
-     */
+	/**
+	 * Returns the view page for patient.
+	 */
 	@Override
 	protected String getView() {
 

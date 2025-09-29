@@ -34,8 +34,11 @@ public class TestPatientModel {
 		PatientBean bean = new PatientBean();
 
 		PatientModel model = new PatientModel();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+//		bean.setDisease("malaria");
 		
-		bean.setDisease("malaria");
+		bean.setDateofvisit(sdf.parse("2007-12-04"));
 		List list = model.search(bean, 1, 10);
 
 		Iterator it = list.iterator();
